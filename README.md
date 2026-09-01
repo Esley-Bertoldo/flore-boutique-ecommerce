@@ -1,11 +1,11 @@
 # Floré Boutique
 
-Sistema web de e-commerce em produção desenvolvido como solução real para uma floricultura. O projeto engloba a vitrine de produtos, gerenciamento de carrinho e um painel de controle restrito.
+Sistema web de e-commerce em produção desenvolvido como solução real para uma loja de roupas. O projeto engloba a vitrine de produtos, gerenciamento de carrinho e um painel de controle restrito.
 
 🔗 **Acesso ao Projeto:** [usefloreboutique.com.br](https://usefloreboutique.com.br)
 
 ## 📌 Sobre o Projeto
-A Flor Boutique é uma aplicação web focada na conversão e experiência do usuário. O projeto foi estruturado em duas frentes:
+A Floré Boutique é uma aplicação web focada na conversão e experiência do usuário. O projeto foi estruturado em duas frentes:
 1. **Área do Cliente:** Interface responsiva contendo o catálogo de produtos e um sistema de carrinho de compras completo (`carrinho.html`).
 2. **Painel Administrativo:** Uma área restrita (`adm/index.html`) para o controle e gerenciamento da plataforma.
 
