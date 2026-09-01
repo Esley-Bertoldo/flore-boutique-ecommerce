@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floré Boutique</title>
+
+    <meta property="description" content="Elegância, sofisticação e conforto em peças exclusivas criadas para transformar o seu estilo.">
+    <meta property="og:title" content="Floré Boutique - Catálogo Exclusivo">
+    <meta property="og:description" content="Descubra a elegância em cada detalhe com nossas peças exclusivas.">
+    <meta property="og:image" content="https://seusite.com/img/LogoComFundo.webp"> <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="mobile-menu-btn">
+            <i class="ph ph-list"></i>
+        </div>
+        
+        <div class="logo-container">
+            <a href="#inicio"><img src="img/Logo02.webp" alt="Floré Boutique" class="logo-img"></a>
+        </div>
+     
+        <nav class="nav-links desktop-only">
+            <a href="#inicio">Início</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        
+        <div class="nav-actions">
+            <a href="carrinho.html" class="cart-btn" id="add-to-cart" aria-label="Sacola de compras">
+                <i class="ph ph-handbag"></i>
+                <span class="badge escondido">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="hero" id="inicio">
+        <div class="purple-board"></div>
+
+        <div class="model-container">
+            <img src="img/ArvoreLavandaDesktop.webp" alt="Modelo Floré" class="img-modelo desktop-only">
+            
+            <img src="img/FloresLavandaMobile.webp" alt="Modelo Floré Mobile" class="img-modelo-mobile mobile-only">
+        </div>
+
+        <div class="content-wrapper">
+            <div class="column left-col">
+                <div class="title-block">
+                    <h2 class="sub-title">Defina o seu</h2>
+                    <h1 class="main-title">ESTILO</h1>
+                </div>
+                
+                <div class="mobile-divider mobile-only"><i class="ph-fill ph-asterisk"></i></div>
+
+                <div class="title-block mobile-only" style="margin-bottom: 20px;">
+                    <h2 class="sub-title">Crie o seu</h2>
+                    <h1 class="main-title">MUNDO</h1>
+                </div>
+              
+                <div class="info-block">
+                    <h3 class="highlight-text">Conforto que<br>te acompanha</h3>
+                    <p class="desc-text">Eleve o seu dia a dia com<br>peças que falam por você.</p>
+                    
+                    <a href="#catalogo" style="text-decoration: none;"><button class="btn-dark">Ver catálogo <i class="ph ph-arrow-right"></i></button></a>
+                    
+                    <div class="social-proof">
+                        <div class="avatars">
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                        </div>
+                        <span class="proof-text">Amada por<br>Todos os clientes <i class="ph-fill ph-heart"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column right-col">
+                <div class="title-block desktop-only">
+                    <h2 class="sub-title">Crie o seu</h2>
+                    <h1 class="main-title">MUNDO</h1>
+                </div>
+                
+                <div class="product-card featured-slider">
+                    <div class="card-header-flex">
+                        <span class="card-label">Destaques</span>
+                        <div class="card-arrows">
+                            <button id="prev-featured"><i class="ph ph-caret-left"></i></button>
+                            <button id="next-featured"><i class="ph ph-caret-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content fade-content" id="featured-content">
+                        <div class="mini-product-img">
+                            <img src="img/Vestido.webp" alt="Destaque" id="featured-img">
+                        </div>
+                        <div class="card-info">
+                            <h4 id="featured-title">Carregando...</h4>
+                            <p id="featured-desc">Exclusividade<br>Floré</p>
+                            <span class="price" id="featured-price">R$ ---</span>
+                            
+                            <a href="#catalogo" style="text-decoration: none;">
+                                <button class="btn-light" id="ver-mais-btn">
+                                    <i class="ph ph-eye"></i> Ver mais
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="collections-section" id="catalogo">
+        <div class="collections-header">
+            <h2 class="main-title">Nosso Catálogo</h2>
+            <p class="desc-text">Descubra a elegância em cada detalhe com nossas peças exclusivas.</p>
+        </div>
+
+        <div class="filter-bar">
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Pesquisar peças, cores...">
+            </div>
+            
+            <div class="filter-actions">
+                <div class="filter-dropdown-container">
+                    <i class="ph ph-funnel"></i>
+                    <select class="filter-dropdown" aria-label="Filtrar por categoria">
+                        <option value="todos">Todos os Produtos</option>
+                        <option value="vestidos">Vestidos</option>
+                        <option value="conjuntos">Conjuntos</option>
+                        <option value="blusas">Blusas</option>
+                        <option value="calcas">Calças</option>
+                        <option value="blusas-personalizadas">Blusas Personalizadas</option>
+                        <option value="biquinis">Biquínis</option>
+                        <option value="plus-size">Plus Size</option>
+                        <option value="natal">Coleção de Natal</option>
+                        <option value="ano-novo">Coleção de Ano Novo</option>
+                    </select>
+                </div>
+                <button class="btn-ver-mais">Ver mais</button>
+            </div>
+        </div>
+
+        <div id="mensagem-pesquisa-vazia" class="oculto-pesquisa" style="text-align: center; padding: 6vh 2vw; width: 100%;">
+            <i class="ph ph-mask-sad" style="font-size: 3.5rem; color: #8D72A3; margin-bottom: 15px; display: inline-block;"></i>
+            <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 8px;">Nenhuma peça encontrada</h3>
+            <p style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 20px;">Não encontramos nenhum vestido, conjunto ou blusa com esse nome ou cor no momento.</p>
+            <button id="btn-limpar-busca" class="btn-dark" style="margin: 0 auto;"><i class="ph ph-arrow-counter-clockwise"></i> Limpar pesquisa</button>
+        </div>
+
+        <div id="loading-catalogo" style="text-align: center; padding: 10vh 0; width: 100%; transition: opacity 0.4s ease;">
+            <div class="spinner-flore"></div>
+            <p style="color: var(--text-gray); font-size: 0.95rem; margin-top: 15px; font-weight: 500; letter-spacing: 0.5px;">Preparando o catálogo para você...</p>
+        </div>
+
+        <div id="conteudo-catalogo" style="opacity: 0; transition: opacity 0.5s ease;">
+            
+            <div class="category-carousel-block" data-categoria="vestidos">
+                <h3 class="category-title">Vestidos</h3>
+                <div class="carousel-wrapper">
+                    <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+                    <div class="carousel-track-container">
+                        <div class="product-grid" id="grid-vestidos"></div>
+                    </div>
+                    <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+                </div>
+                <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+                    <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+                </div>
+            </div>
+
+            <div class="category-carousel-block" data-categoria="conjuntos">
+                <h3 class="category-title">Conjuntos</h3>
+                <div class="carousel-wrapper">
+                    <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+                    <div class="carousel-track-container">
+                        <div class="product-grid" id="grid-conjuntos"></div>
+                    </div>
+                    <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+                </div>
+                <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+                    <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+                </div>
+            </div>
+
+            <div class="category-carousel-block" data-categoria="blusas">
+                <h3 class="category-title">Blusas</h3>
+                <div class="carousel-wrapper">
+                    <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+                    <div class="carousel-track-container">
+                        <div class="product-grid" id="grid-blusas"></div>
+                    </div>
+                    <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+                </div>
+                <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+                    <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+                </div>
+            </div>
+
+            <div class="category-carousel-block" data-categoria="calcas">
+    <h3 class="category-title">Calças</h3>
+    <div class="carousel-wrapper">
+        <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+        <div class="carousel-track-container">
+            <div class="product-grid" id="grid-calcas"></div> </div>
+        <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+    </div>
+    <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+        <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+    </div>
+</div>
+
+
+<div class="category-carousel-block" data-categoria="blusas-personalizadas">
+    <h3 class="category-title">Blusas Personalizadas</h3>
+    <div class="carousel-wrapper">
+        <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+        <div class="carousel-track-container">
+            <div class="product-grid" id="grid-blusas-personalizadas"></div>
+        </div>
+        <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+    </div>
+    <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+        <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+    </div>
+</div>
+
+            <div class="category-carousel-block" data-categoria="biquinis">
+                <h3 class="category-title">Biquínis</h3>
+                <div class="carousel-wrapper">
+                    <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+                    <div class="carousel-track-container">
+                        <div class="product-grid" id="grid-biquinis"></div>
+                    </div>
+                    <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+                </div>
+                <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+                    <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+                </div>
+            </div>
+
+            <div class="category-carousel-block" data-categoria="plus-size">
+        <h3 class="category-title">Plus Size</h3>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+            <div class="carousel-track-container">
+                <div class="product-grid" id="grid-plus-size"></div>
+            </div>
+            <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+        </div>
+        <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+            <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+        </div>
+    </div>
+
+            <div class="category-carousel-block" data-categoria="natal">
+        <h3 class="category-title">Coleção de Natal</h3>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+            <div class="carousel-track-container">
+                <div class="product-grid" id="grid-natal"></div>
+            </div>
+            <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+        </div>
+        <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+            <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+        </div>
+    </div>
+
+    <div class="category-carousel-block" data-categoria="ano-novo">
+        <h3 class="category-title">Coleção de Ano Novo</h3>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow prev-arrow"><i class="ph ph-caret-left"></i></button>
+            <div class="carousel-track-container">
+                <div class="product-grid" id="grid-ano-novo"></div>
+            </div>
+            <button class="carousel-arrow next-arrow"><i class="ph ph-caret-right"></i></button>
+        </div>
+        <div class="container-btn-filtro" style="display: none; text-align: center; margin-top: 30px; width: 100%;">
+            <button class="btn-vazado-filtro">Ver todos <i class="ph ph-caret-down"></i></button>
+        </div>
+    </div>
+
+        </div> </section>
+
+    <section class="about-section" id="sobre">
+        <div class="about-container">
+            <div class="about-image-card">
+                <div class="about-img-placeholder">
+                    <img src="img/LogoSobre.webp" alt="Sobre a Floré Boutique">
+                </div>
+            </div>
+
+            <div class="about-text-content">
+                <span class="about-tag">Sobre Nós</span>
+                <h2 class="about-title">Floré Boutique</h2>
+                <div class="about-divider"></div>
+                <p class="about-description">
+                    A Floré Boutique nasceu do desejo de unir sofisticação e conforto em peças atemporais. Acreditamos que a moda é a mais pura forma de expressão pessoal, uma maneira de contar a sua história sem precisar dizer uma única palavra.
+                </p>
+                <p class="about-description">
+                    Cada coleção é desenhada meticulosamente com tecidos premium e acabamentos artesanais para proporcionar uma experiência única, elevando a sua confiança em todos os momentos do seu dia a dia.
+                </p>
+                <div class="about-buttons">
+                    <a href="https://www.instagram.com/_flore.boutique/" target="_blank" rel="noopener noreferrer" class="btn-insta-vazado">
+                        CONHEÇA MAIS <i class="ph ph-instagram-logo"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-whatsapp-section" id="contato">
+        <div class="cta-card-completo" style="background-image: url('img/CTA.webp');">
+            <div class="cta-conteudo-esquerda">
+                <span class="cta-tag">Atendimento Exclusivo</span>
+                <h2 class="cta-title">Entre em Contato</h2>
+                <p class="cta-desc">
+                    Tem dúvidas sobre tamanhos, cores disponíveis ou quer montar um look personalizado? Fale diretamente com a nossa consultora pelo WhatsApp!
+                </p>
+                
+                <a href="https://wa.me/5582993620937?text=Olá!%20Gostaria%20de%20tirar%20alguma%20dúvida%20sobre%20as%20peças%20da%20Floré%20Boutique." target="_blank" rel="noopener noreferrer" class="btn-cta-whatsapp">
+                    <i class="ph ph-whatsapp-logo"></i> Falar pelo WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col footer-left">
+                <div class="footer-logo">
+                    <img src="img/Logofooter.webp" alt="Floré Boutique" class="footer-logo-img">
+                </div>
+                <p class="footer-desc">
+                    Elegância, sofisticação e conforto em peças exclusivas criadas para transformar o seu estilo todos os dias.
+                </p>
+            </div>
+
+            <div class="footer-col footer-right">
+                <h4 class="footer-title">Conheça nossas redes</h4>
+                <div class="footer-socials">
+                    <a href="https://wa.me/5582993620937" target="_blank" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="https://www.instagram.com/_flore.boutique/" target="_blank" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <span class="copyright">© 2026 Floré Boutique. Todos os direitos reservados.</span>
+                <div class="developer-info">
+                    <span>Desenvolvido por</span>
+                    <a href="https://www.instagram.com/nexatech____/" target="_blank" rel="noopener noreferrer" class="dev-logo-placeholder" style="text-decoration: none;">
+                        <img src="img/LogoNexaTechSF.webp" alt="NexaTech">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-selecao-produto" class="modal-overlay escondido">
+        <div class="modal-box modal-compra-box">
+            
+            <div class="modal-header">
+                <h3 id="modal-titulo-acao">Selecionar Opções</h3>
+                <button id="btn-fechar-modal-selecao" class="btn-icon" aria-label="Fechar"><i class="ph ph-x"></i></button>
+            </div>
+
+            <div id="modal-passo-1-header" class="modal-produto-resumo">
+                <div class="modal-img-mini">
+                    <img id="modal-produto-img" src="" alt="Produto">
+                </div>
+                <div>
+                    <h4 id="modal-produto-nome">Nome da Peça</h4>
+                    <span id="modal-produto-preco" class="modal-preco">R$ 0,00</span>
+                </div>
+            </div>
+
+            <form id="form-selecao-opcoes">
+               <div id="modal-passo-1">
+                    <div class="form-group" style="margin-top: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <label style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); margin: 0;">Escolha o Tamanho:</label>
+                            <span id="indicador-progresso-tamanhos" style="font-size: 0.8rem; font-weight: 600; color: #8D72A3;"></span>
+                        </div>
+                        <div id="modal-opcoes-tamanho" class="sizes-select-grid"></div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 18px;">
+                        <label style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); display: block; margin-bottom: 6px;">Quantidade:</label>
+                        <div class="quantidade-controle">
+                            <button type="button" id="btn-menos-qtd" class="btn-qtd">-</button>
+                            <input type="number" id="input-quantidade" value="1" min="1" max="20" readonly>
+                            <button type="button" id="btn-mais-qtd" class="btn-qtd">+</button>
+                        </div>
+                    </div>
+
+                    <div class="aviso-cores-modal">
+                        <i class="ph ph-palette"></i>
+                        <span>Deseja essa peça em outra cor? <strong>Consulte as cores disponíveis</strong> no nosso WhatsApp!</span>
+                    </div>
+
+                    <button type="button" id="btn-prosseguir-passo1" class="btn-principal" style="margin-top: 22px;">
+                        Prosseguir
+                    </button>
+                </div>
+
+                <div id="modal-passo-2" class="escondido" style="animation: fadeSuave 0.4s ease;">
+                    <div style="background: #F8EEFA; padding: 15px; border-radius: 16px; margin-bottom: 22px; display: flex; gap: 15px; align-items: center; border: 1px solid #D2C0DC;">
+                        <div class="modal-img-mini" style="width: 65px; height: 85px;">
+                            <img id="resumo-passo2-img" src="" alt="Produto">
+                        </div>
+                        <div>
+                            <h4 id="resumo-passo2-nome" style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 4px;">Nome</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 6px;">Tamanho: <strong id="resumo-passo2-tam" style="color: var(--primary-dark);">M</strong> &nbsp;|&nbsp; Qtd: <strong id="resumo-passo2-qtd" style="color: var(--primary-dark);">1</strong></p>
+                            <span id="resumo-passo2-preco" style="font-weight: 700; color: var(--primary-dark); font-size: 1.1rem;">R$ 0,00</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); display: block; margin-bottom: 6px;">Digite seu nome:</label>
+                        <input type="text" id="input-nome-cliente" placeholder="Ex: Maria Silva" style="width: 100%; padding: 12px 14px; border: 1px solid #D2C0DC; border-radius: 10px; font-family: var(--font-sans); outline: none;">
+                    </div>
+
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); display: block; margin-bottom: 6px;">Forma de Pagamento:</label>
+                        <select id="select-forma-pagamento" style="width: 100%; padding: 12px 14px; border: 1px solid #D2C0DC; border-radius: 10px; font-family: var(--font-sans); color: var(--primary-dark); outline: none; background: white;">
+                            <option value="Pix">Pix</option>
+                            <option value="Cartão de Crédito">Cartão de Crédito</option>
+                            <option value="Boleto Bancário">Boleto Bancário</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btn-confirmar-final" class="btn-principal" style="margin-top: 25px;">
+                        Confirmar <i class="ph ph-whatsapp-logo" style="font-size: 1.25rem;"></i>
+                    </button>
+                    
+                    
+                    <button type="button" id="btn-voltar-passo1" style="background: transparent; border: none; width: 100%; margin-top: 16px; color: var(--text-gray); font-family: var(--font-sans); font-size: 0.88rem; font-weight: 500; cursor: pointer; text-decoration: underline; transition: color 0.2s;">
+                        Voltar para trocar tamanho
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-zoom-imagem" class="zoom-overlay escondido">
+        <div class="zoom-box">
+            <button id="btn-fechar-zoom" aria-label="Fechar Zoom"><i class="ph ph-x"></i></button>
+            <img id="img-zoom-alvo" src="" alt="Peça em Detalhes">
+        </div>
+    </div>
+
+    <div id="modal-aviso-geral" class="modal-overlay escondido" style="z-index: 3000;">
+        <div class="modal-box modal-compra-box" style="max-width: 400px; text-align: center; padding: 35px 25px;">
+            
+            <div style="font-size: 3.5rem; margin-bottom: 15px; animation: bounceInUp 0.6s ease;" id="cor-icone-aviso">
+                <i id="icone-aviso-geral" class="ph-fill ph-warning-circle"></i>
+            </div>
+            
+            <h3 id="titulo-aviso-geral" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 10px;">Aviso</h3>
+            
+            <p id="texto-aviso-geral" style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">
+                Mensagem de aviso aqui.
+            </p>
+            
+            <button id="btn-fechar-aviso-geral" class="btn-principal" style="width: 100%; margin: 0;">
+                Entendi
+            </button>
+            
+        </div>
+    </div>
+
+        <button id="btn-flutuante-busca" class="escondido-animado" aria-label="Voltar para a pesquisa">
+        <i class="ph ph-magnifying-glass"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

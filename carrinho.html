@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Sacola - Floré Boutique</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div style="width: 33.33%; display: flex; align-items: center;">
+            <a href="index.html" class="btn-voltar-nav">
+        <i class="ph ph-arrow-left"></i> <span class="texto-voltar">Voltar à Loja</span>
+    </a>
+        </div>
+        
+        <div style="width: 33.33%; display: flex; justify-content: center; align-items: center;">
+            <a href="index.html">
+                <img src="img/Logo02.webp" alt="Floré Boutique" class="logo-img" style="margin: 0;">
+            </a>
+        </div>
+        
+        <div class="nav-actions" style="width: 33.33%; display: flex; justify-content: flex-end; align-items: center;">
+            <div class="cart-btn" aria-label="Sacola de compras" style="cursor: default;">
+                <i class="ph ph-handbag"></i>
+                <span class="badge">2</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page-section">
+        
+        <div class="cart-header-title">
+            <h2 class="main-title">Minha Sacola</h2>
+            <p class="desc-text">Revise os itens escolhidos antes de finalizar seu pedido.</p>
+        </div>
+
+        <div class="cart-layout-grid">
+            
+            <div class="cart-items-list" id="container-itens-carrinho">
+                </div>
+
+            <div class="cart-summary-panel">
+                <h3>Resumo do Pedido</h3>
+                
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span id="resumo-subtotal">R$ 0,00</span>
+                </div>
+                
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="resumo-total">R$ 0,00</span>
+                </div>
+
+                <div class="form-group" style="margin-top: 25px;">
+                    <label style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); display: block; margin-bottom: 6px;">Seu Nome:</label>
+                    <input type="text" id="input-nome-carrinho" placeholder="Ex: Maria Silva" style="width: 100%; padding: 12px 14px; border: 1px solid #D2C0DC; border-radius: 10px; font-family: var(--font-sans); outline: none;">
+                </div>
+
+                <div class="form-group" style="margin-top: 15px; margin-bottom: 25px;">
+                    <label style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); display: block; margin-bottom: 6px;">Forma de Pagamento:</label>
+                    <select id="select-pagamento-carrinho" style="width: 100%; padding: 12px 14px; border: 1px solid #D2C0DC; border-radius: 10px; font-family: var(--font-sans); color: var(--primary-dark); outline: none; background: white;">
+                        <option>Pix</option>
+                        <option>Cartão de Crédito</option>
+                        <option>Boleto Bancário</option>
+                    </select>
+                </div>
+
+                <button class="btn-principal" onclick="finalizarPedidoCarrinho()">
+                    Finalizar Pedido <i class="ph ph-whatsapp-logo" style="font-size: 1.2rem; color: white;"></i>
+                </button>
+                
+                <a href="index.html" class="btn-continuar-comprando">
+                    <i class="ph ph-arrow-left"></i> Continuar comprando
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col footer-left">
+                <div class="footer-logo">
+                    <img src="img/Logofooter.webp" alt="Floré Boutique" class="footer-logo-img">
+                </div>
+                
+                <p class="footer-desc">
+                    Elegância, sofisticação e conforto em peças exclusivas criadas para transformar o seu estilo todos os dias.
+                </p>
+            </div>
+
+            <div class="footer-col footer-right">
+                <h4 class="footer-title">Conheça nossas redes</h4>
+                <div class="footer-socials">
+                    <a href="https://wa.me/5582993620937" target="_blank" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="https://www.instagram.com/_flore.boutique/" target="_blank" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <span class="copyright">© 2026 Floré Boutique. Todos os direitos reservados.</span>
+                <div class="developer-info">
+                    <span>Desenvolvido por</span>
+                    <a href="https://www.instagram.com/nexatech____/" target="_blank" rel="noopener noreferrer" class="dev-logo-placeholder" style="text-decoration: none;">
+                        <img src="img/LogoNexaTechSF.webp" alt="NexaTech">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="modal-acao-carrinho" class="modal-overlay escondido">
+        <div class="modal-box modal-compra-box" style="max-width: 380px; text-align: center; padding: 30px 20px;">
+            
+            <div id="modal-acao-icone" style="font-size: 3.5rem; color: var(--primary-dark); margin-bottom: 10px;">
+                <i class="ph ph-question"></i>
+            </div>
+            
+            <h3 id="modal-acao-titulo" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 10px;">Título</h3>
+            <p id="modal-acao-desc" style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.4;">Descrição do que vai acontecer aqui.</p>
+            
+            <div id="modal-acao-tamanho-box" class="escondido" style="margin-bottom: 15px; text-align: left;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <label style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); margin: 0;">Escolha o Tamanho:</label>
+                    <span id="modal-edit-progresso" style="font-size: 0.8rem; font-weight: 600; color: #8D72A3;"></span>
+                </div>
+                <div id="modal-edit-tamanhos-grid" class="sizes-select-grid"></div>
+            </div>
+
+            <div id="modal-acao-qtd-box" class="escondido" style="margin-bottom: 30px; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                <label id="label-qtd-modal" style="font-weight: 600; font-size: 0.9rem; color: var(--primary-dark); display: none; margin-bottom: 6px; width: 100%; text-align: left;">Quantidade Total:</label>
+                <div class="quantidade-controle" style="margin: 0; width: 100%; justify-content: space-between; max-width: 150px;">
+                    <button type="button" id="btn-modal-menos" class="btn-qtd">-</button>
+                    <input type="number" id="input-modal-qtd" value="1" min="1" max="20" readonly>
+                    <button type="button" id="btn-modal-mais" class="btn-qtd">+</button>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: center;">
+                <button id="btn-modal-cancelar" class="btn-outline-card" style="width: auto; padding: 10px 24px; margin: 0; flex: 1;">Cancelar</button>
+                <button id="btn-modal-confirmar" class="btn-principal" style="width: auto; padding: 10px 24px; margin: 0; flex: 1.2;">Confirmar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal-limpar-carrinho" class="modal-overlay escondido">
+        <div class="modal-box modal-compra-box" style="max-width: 400px; text-align: center; padding: 35px 25px;">
+            
+            <div style="font-size: 3.5rem; color: #25D366; margin-bottom: 15px; animation: bounceInUp 0.6s ease;">
+                <i class="ph-fill ph-check-circle"></i>
+            </div>
+            
+            <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 10px;">Pedido Enviado!</h3>
+            
+            <p style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">
+                Vimos que você foi para o WhatsApp finalizar seu pedido. Deseja esvaziar sua sacola agora ou prefere manter as peças salvas?
+            </p>
+            
+            <div style="display: flex; gap: 12px; justify-content: center; flex-direction: column;">
+                <button id="btn-esvaziar-sacola" class="btn-principal" style="width: 100%; margin: 0; background-color: #25D366;">
+                    <i class="ph ph-trash"></i> Sim, esvaziar sacola
+                </button>
+                <button id="btn-manter-sacola" class="btn-outline-card" style="width: 100%; margin: 0;">
+                    Não, manter as peças
+                </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="modal-aviso-geral" class="modal-overlay escondido">
+        <div class="modal-box modal-compra-box" style="max-width: 400px; text-align: center; padding: 35px 25px;">
+            
+            <div style="font-size: 3.5rem; margin-bottom: 15px; animation: bounceInUp 0.6s ease;" id="cor-icone-aviso">
+                <i id="icone-aviso-geral" class="ph-fill ph-warning-circle"></i>
+            </div>
+            
+            <h3 id="titulo-aviso-geral" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 10px;">Aviso</h3>
+            
+            <p id="texto-aviso-geral" style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">
+                Mensagem de aviso aqui.
+            </p>
+            
+            <button id="btn-fechar-aviso-geral" class="btn-principal" style="width: 100%; margin: 0;">
+                Entendi
+            </button>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+// ================= EFEITO DA BARRA DE NAVEGAÇÃO =================
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // ================= LÓGICA DA PÁGINA DO CARRINHO =================
+        function renderizarCarrinho() {
+            let carrinho = JSON.parse(localStorage.getItem('floreBoutiqueCart')) || [];
+            const container = document.getElementById('container-itens-carrinho');
+            const badge = document.querySelector('.badge');
+            
+            container.innerHTML = '';
+            let valorTotal = 0;
+            let totalItens = 0;
+
+            if (carrinho.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; background: white; border-radius: 20px;">
+                        <i class="ph ph-handbag" style="font-size: 4rem; color: #D2C0DC; margin-bottom: 15px;"></i>
+                        <h4 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--primary-dark);">Sua sacola está vazia</h4>
+                        <p style="color: var(--text-gray); margin-top: 10px;">Adicione peças exclusivas para finalizar seu pedido.</p>
+                        <a href="index.html" class="btn-principal" style="width: auto; display: inline-flex; margin-top: 25px;">Ir para o Catálogo</a>
+                    </div>`;
+                document.getElementById('resumo-subtotal').innerText = 'R$ 0,00';
+                document.getElementById('resumo-total').innerText = 'R$ 0,00';
+                if (badge) { badge.innerText = '0'; badge.style.display = 'none'; }
+                return;
+            }
+
+            carrinho.forEach((item, index) => {
+                let dist = item.distribuicaoTamanhos;
+                if (!dist) {
+                    dist = {};
+                    dist[item.tamanho || item.tamanhos || 'M'] = item.quantidade || 1;
+                }
+
+                const qtdTotalItem = Object.values(dist).reduce((a, b) => a + b, 0);
+                valorTotal += item.precoLimpo * qtdTotalItem;
+                totalItens += qtdTotalItem;
+
+                // Formatação elegante: "1x M, 2x P, 2x PP"
+                const textoTamanhos = Object.entries(dist)
+                    .map(([tam, q]) => `${q}x ${tam}`)
+                    .join(', ');
+
+                container.innerHTML += `
+                    <div class="cart-item-card">
+                        <div class="cart-item-img">
+                            <img src="${item.imagemUrl}" alt="${item.nome}">
+                        </div>
+                        
+                        <div class="cart-item-info">
+                            <h4>${item.nome}</h4>
+                            <span class="cart-item-size">Tamanhos: <strong style="color: var(--primary-dark);">${textoTamanhos}</strong></span>
+                            <span class="cart-item-price">R$ ${item.precoOriginal}</span>
+                        </div>
+
+                        <div class="cart-item-controls">
+                            <div style="font-weight: 600; color: var(--primary-dark); font-size: 0.95rem; background: #F8EEFA; padding: 6px 14px; border-radius: 30px;">
+                                Qtd Total: ${qtdTotalItem}
+                            </div>
+                            
+                            <div style="display: flex; gap: 12px; margin-top: 10px;">
+                                <button class="btn-remover-item" onclick="abrirModalAcao('editar', ${index})" style="color: #8D72A3;">
+                                    <i class="ph ph-pencil-simple"></i> Editar
+                                </button>
+                                <button class="btn-remover-item" onclick="abrirModalAcao('remover', ${index})">
+                                    <i class="ph ph-trash"></i> Remover
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const totalFormatado = valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('resumo-subtotal').innerText = totalFormatado;
+            document.getElementById('resumo-total').innerText = totalFormatado;
+            
+            if (badge) {
+                badge.innerText = totalItens;
+                badge.style.display = 'flex';
+            }
+            // 👈 ADICIONE ESTE BLOCO AQUI NO FINAL DA FUNÇÃO RENDERIZARCARRINHO()
+            setTimeout(() => {
+                const itensCarrinho = document.querySelectorAll('.cart-item-card, .cart-summary-panel');
+                itensCarrinho.forEach((el, i) => {
+                    el.classList.add('reveal');
+                    // Efeito cascata para os cards aparecerem um após o outro
+                    if (el.classList.contains('cart-item-card')) {
+                        el.style.transitionDelay = `${i * 0.15}s`; 
+                    }
+                    setTimeout(() => el.classList.add('active'), 100);
+                });
+            }, 50);
+        }
+
+// ================= MODAL DE EDIÇÃO AVANÇADA =================
+        let acaoAtualIndex = -1;
+        let acaoAtualTipo = '';
+        let editDistribuicaoTamanhos = {};
+        
+        let tamanhosDisponiveisAtuais = []; // 👈 Variável para os tamanhos corretos da peça
+        const todosTamanhosPadrao = ['PP', 'P', 'M', 'G', 'GG', 'Plus Size']; // Usado só como segurança
+
+        function renderizarPilulasEdit() {
+            const boxTamanhos = document.getElementById('modal-edit-tamanhos-grid');
+            const indicadorProgresso = document.getElementById('modal-edit-progresso');
+            const inputQtd = document.getElementById('input-modal-qtd');
+            const btnConfirmar = document.getElementById('btn-modal-confirmar');
+
+            if (!boxTamanhos) return;
+            boxTamanhos.innerHTML = '';
+
+            const qtdTotalDesejada = parseInt(inputQtd.value) || 1;
+            let somaSelecionada = 0;
+            Object.values(editDistribuicaoTamanhos).forEach(v => somaSelecionada += v);
+
+            if (indicadorProgresso) {
+                if (qtdTotalDesejada > 1) {
+                    indicadorProgresso.innerText = `(${somaSelecionada} de ${qtdTotalDesejada} selecionados)`;
+                    indicadorProgresso.style.color = (somaSelecionada === qtdTotalDesejada) ? '#25D366' : '#8D72A3';
+                } else {
+                    indicadorProgresso.innerText = '';
+                }
+            }
+
+            if (btnConfirmar && acaoAtualTipo === 'editar') {
+                if (somaSelecionada === qtdTotalDesejada) {
+                    btnConfirmar.classList.remove('btn-bloqueado');
+                    btnConfirmar.style.pointerEvents = 'auto';
+                } else {
+                    btnConfirmar.classList.add('btn-bloqueado');
+                    btnConfirmar.style.pointerEvents = 'none';
+                }
+            }
+
+            // MÁGICA: Em vez de mostrar todos, mostra só os disponíveis na peça!
+            tamanhosDisponiveisAtuais.forEach(tamRaw => {
+                const tam = tamRaw.trim(); // Limpa os espaços
+                const qtdDesteTam = editDistribuicaoTamanhos[tam] || 0;
+                const estaSelecionado = qtdDesteTam > 0;
+
+                const pilula = document.createElement('div');
+                pilula.className = `tamanho-pula ${estaSelecionado ? 'selecionado' : ''}`;
+                pilula.style.cursor = 'pointer';
+
+                pilula.innerHTML = `
+                    ${tam}
+                    ${qtdDesteTam > 0 ? `<span class="badge-qtd-tamanho">${qtdDesteTam}</span>` : ''}
+                `;
+
+                pilula.onclick = () => {
+                    if (qtdTotalDesejada === 1) {
+                        editDistribuicaoTamanhos = {};
+                        editDistribuicaoTamanhos[tam] = 1;
+                    } else {
+                        if (somaSelecionada < qtdTotalDesejada) {
+                            editDistribuicaoTamanhos[tam] = (editDistribuicaoTamanhos[tam] || 0) + 1;
+                        } else if (editDistribuicaoTamanhos[tam] > 0) {
+                            editDistribuicaoTamanhos[tam]--;
+                            if (editDistribuicaoTamanhos[tam] === 0) delete editDistribuicaoTamanhos[tam];
+                        }
+                    }
+                    renderizarPilulasEdit();
+                };
+
+                boxTamanhos.appendChild(pilula);
+            });
+        }
+
+        window.abrirModalAcao = function(tipo, index) {
+            acaoAtualIndex = index;
+            acaoAtualTipo = tipo;
+            let carrinho = JSON.parse(localStorage.getItem('floreBoutiqueCart')) || [];
+            let item = carrinho[index];
+
+            const modal = document.getElementById('modal-acao-carrinho');
+            const titulo = document.getElementById('modal-acao-titulo');
+            const desc = document.getElementById('modal-acao-desc');
+            const icone = document.getElementById('modal-acao-icone');
+            
+            const qtdBox = document.getElementById('modal-acao-qtd-box');
+            const tamanhoBox = document.getElementById('modal-acao-tamanho-box');
+            const inputQtd = document.getElementById('input-modal-qtd');
+            const labelQtd = document.getElementById('label-qtd-modal');
+            const btnConfirmar = document.getElementById('btn-modal-confirmar');
+
+            if (tipo === 'remover') {
+                icone.innerHTML = '<i class="ph ph-trash" style="color: #D9534F;"></i>';
+                titulo.innerText = 'Remover Peça';
+                desc.innerHTML = `Deseja remover o <strong>${item.nome}</strong> da sua sacola?`;
+                
+                qtdBox.classList.add('escondido');
+                tamanhoBox.classList.add('escondido');
+                labelQtd.style.display = 'none';
+                
+                btnConfirmar.style.backgroundColor = '#D9534F'; 
+                btnConfirmar.innerText = 'Sim, remover';
+                btnConfirmar.classList.remove('btn-bloqueado');
+                btnConfirmar.style.pointerEvents = 'auto';
+
+            } else if (tipo === 'editar') {
+                icone.innerHTML = '<i class="ph ph-pencil-simple" style="color: var(--primary-dark);"></i>';
+                titulo.innerText = 'Editar Opções';
+                desc.innerHTML = `Ajuste os tamanhos desejados para o <strong>${item.nome}</strong>:`;
+                
+                qtdBox.classList.remove('escondido');
+                tamanhoBox.classList.remove('escondido');
+                labelQtd.style.display = 'block'; 
+                
+                let dist = item.distribuicaoTamanhos;
+                if (!dist) {
+                    dist = {};
+                    dist[item.tamanho || 'M'] = item.quantidade || 1;
+                }
+                
+                // MÁGICA 3: Lê do banco quais os tamanhos certos a desenhar
+                tamanhosDisponiveisAtuais = item.tamanhosDisponiveis || todosTamanhosPadrao;
+                
+                editDistribuicaoTamanhos = JSON.parse(JSON.stringify(dist));
+                const qtdTotalItem = Object.values(editDistribuicaoTamanhos).reduce((a, b) => a + b, 0);
+                inputQtd.value = qtdTotalItem;
+                
+                renderizarPilulasEdit();
+                
+                btnConfirmar.style.backgroundColor = 'var(--primary-dark)';
+                btnConfirmar.innerText = 'Salvar Alterações';
+            }
+
+            modal.classList.remove('escondido');
+        };
+
+        // Controles + e -
+        document.getElementById('btn-modal-menos').addEventListener('click', () => {
+            let i = document.getElementById('input-modal-qtd');
+            let qtd = parseInt(i.value);
+            if (qtd > 1) {
+                i.value = qtd - 1;
+                // Ao subtrair, ele cai no primeiro tamanho válido da peça em vez de cair direto no M
+                let tamPrincipal = Object.keys(editDistribuicaoTamanhos)[0] || (tamanhosDisponiveisAtuais[0] ? tamanhosDisponiveisAtuais[0].trim() : 'M');
+                editDistribuicaoTamanhos = {};
+                editDistribuicaoTamanhos[tamPrincipal] = qtd - 1;
+                renderizarPilulasEdit();
+            }
+        });
+
+        document.getElementById('btn-modal-mais').addEventListener('click', () => {
+            let i = document.getElementById('input-modal-qtd');
+            let qtd = parseInt(i.value);
+            if (qtd < 20) {
+                i.value = qtd + 1;
+                renderizarPilulasEdit();
+            }
+        });
+
+        // Fechar Modal
+        document.getElementById('btn-modal-cancelar').addEventListener('click', () => {
+            document.getElementById('modal-acao-carrinho').classList.add('escondido');
+        });
+
+        // Salvar alterações no Carrinho
+        document.getElementById('btn-modal-confirmar').addEventListener('click', () => {
+            let carrinho = JSON.parse(localStorage.getItem('floreBoutiqueCart')) || [];
+            
+            if (acaoAtualTipo === 'remover') {
+                carrinho.splice(acaoAtualIndex, 1);
+            } else if (acaoAtualTipo === 'editar') {
+                let novaQtd = parseInt(document.getElementById('input-modal-qtd').value);
+                let somaSelecionada = Object.values(editDistribuicaoTamanhos).reduce((a, b) => a + b, 0);
+
+                if (somaSelecionada < novaQtd) {
+                    mostrarAvisoGeral(
+                        'Tamanhos Incompletos', 
+                        `Por favor, distribua os tamanhos para todas as ${novaQtd} unidades antes de salvar.`,
+                        '#6B5B7B', // 
+                        'ph-warning-circle' // Ícone de atenção
+                    );
+                    return;
+                }
+
+                carrinho[acaoAtualIndex].distribuicaoTamanhos = { ...editDistribuicaoTamanhos };
+                carrinho[acaoAtualIndex].quantidadeTotal = novaQtd;
+            }
+            
+            localStorage.setItem('floreBoutiqueCart', JSON.stringify(carrinho));
+            renderizarCarrinho();
+            if (window.atualizarBadgeNavegacao) window.atualizarBadgeNavegacao(); 
+            
+            document.getElementById('modal-acao-carrinho').classList.add('escondido');
+        });
+
+// Finalizar Pedido via WhatsApp
+        window.finalizarPedidoCarrinho = function() {
+            let carrinho = JSON.parse(localStorage.getItem('floreBoutiqueCart')) || [];
+            
+            if (carrinho.length === 0) {
+                mostrarAvisoGeral(
+                    'Sacola Vazia', 
+                    'Sua sacola está vazia! Adicione itens elegantes antes de finalizar.',
+                    '#D9534F', // Cor vermelha
+                    'ph-handbag' // Ícone de bolsinha
+                );
+                return;
+            }
+
+            const nome = document.getElementById('input-nome-carrinho').value.trim();
+            const pagamento = document.getElementById('select-pagamento-carrinho').value;
+
+            if (!nome) {
+                mostrarAvisoGeral(
+                    'Falta pouco!', 
+                    'Por favor, digite seu nome para prosseguirmos com o atendimento.',
+                    '#6B5B7B', // Cor mostarda/amarela
+                    'ph-user' // Ícone de usuário
+                );
+                return;
+            }
+
+            let itensTexto = '';
+            let totalFinal = 0;
+            // Número oficial da loja atualizado
+            let numeroZap = carrinho[0].numZap || '5582993620937';
+
+            carrinho.forEach(item => {
+                let dist = item.distribuicaoTamanhos;
+                let textoTam = '';
+                let qtdItem = 0;
+                if (dist) {
+                    textoTam = Object.entries(dist).map(([t, q]) => `${q}x ${t}`).join(', ');
+                    qtdItem = Object.values(dist).reduce((a, b) => a + b, 0);
+                } else {
+                    textoTam = item.tamanho || item.tamanhos || 'M';
+                    qtdItem = item.quantidade || 1;
+                }
+                
+                // MÁGICA AQUI: O link da imagem (item.imagemUrl) é injetado no texto
+                itensTexto += `\n👗 *${item.nome}*\n📐 Tamanhos: ${textoTam}\n🔢 Qtd Total: ${qtdItem}x\n🖼️ Foto: ${item.imagemUrl}\n`;
+                totalFinal += item.precoLimpo * qtdItem;
+            });
+
+            const totalZapFormatado = totalFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+            const mensagemZap = encodeURIComponent(
+                `Olá! Meu nome é *${nome}*.\n\n` +
+                `Gostaria de finalizar meu pedido da sacola:\n` +
+                itensTexto +
+                `\n💰 *Valor Total (sem frete):* ${totalZapFormatado}\n` +
+                `💳 *Forma de Pagamento:* ${pagamento}\n\n` +
+                `Como podemos prosseguir com o pagamento e o envio?`
+            );
+
+            // MÁGICA 1: Deixa um aviso salvo no navegador de que o pedido foi pro Zap
+            localStorage.setItem('pedidoFinalizadoZap', 'true');
+
+            // Abre o WhatsApp
+            window.open(`https://wa.me/${numeroZap}?text=${mensagemZap}`, '_blank');
+        };
+
+        // ================= SISTEMA DE AVISOS ELEGANTES =================
+        window.mostrarAvisoGeral = function(titulo, texto, corHex, iconeClass) {
+            document.getElementById('titulo-aviso-geral').innerText = titulo;
+            document.getElementById('texto-aviso-geral').innerText = texto;
+            
+            const divIcone = document.getElementById('cor-icone-aviso');
+            divIcone.style.color = corHex;
+            
+            const iconeElemento = document.getElementById('icone-aviso-geral');
+            iconeElemento.className = `ph-fill ${iconeClass}`;
+            
+            document.getElementById('modal-aviso-geral').classList.remove('escondido');
+        };
+
+        // Fecha o modal de aviso ao clicar no botão "Entendi"
+        document.getElementById('btn-fechar-aviso-geral')?.addEventListener('click', () => {
+            document.getElementById('modal-aviso-geral').classList.add('escondido');
+        });
+
+        // ================= DETECTAR RETORNO DO WHATSAPP =================
+        function verificarRetornoWhatsApp() {
+            const modalLimpeza = document.getElementById('modal-limpar-carrinho');
+            // Se o post-it existe, o cliente acabou de voltar do Zap!
+            if (localStorage.getItem('pedidoFinalizadoZap') === 'true' && modalLimpeza) {
+                modalLimpeza.classList.remove('escondido');
+            }
+        }
+
+        // O vigia: Avisa o código toda vez que a aba do site volta a ficar visível na tela
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                verificarRetornoWhatsApp();
+            }
+        });
+        
+        // Dispara ao carregar também, caso o cliente tenha fechado o navegador e aberto de novo
+        document.addEventListener('DOMContentLoaded', verificarRetornoWhatsApp);
+
+        // O que acontece ao clicar em "Esvaziar Sacola"
+        document.getElementById('btn-esvaziar-sacola')?.addEventListener('click', () => {
+            localStorage.removeItem('floreBoutiqueCart'); // Apaga as roupas do carrinho
+            localStorage.removeItem('pedidoFinalizadoZap'); // Rasga o post-it
+            document.getElementById('modal-limpar-carrinho').classList.add('escondido');
+            renderizarCarrinho(); // Zera o visual da tela na hora
+            if (window.atualizarBadgeNavegacao) window.atualizarBadgeNavegacao();
+        });
+
+        // O que acontece ao clicar em "Manter as peças"
+        document.getElementById('btn-manter-sacola')?.addEventListener('click', () => {
+            localStorage.removeItem('pedidoFinalizadoZap'); // Rasga o post-it
+            document.getElementById('modal-limpar-carrinho').classList.add('escondido');
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', renderizarCarrinho);
+    </script>
+
+</body>
+</html>
