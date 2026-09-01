@@ -9,7 +9,7 @@ A Flor Boutique é uma aplicação web focada na conversão e experiência do us
 1. **Área do Cliente:** Interface responsiva contendo o catálogo de produtos e um sistema de carrinho de compras completo (`carrinho.html`).
 2. **Painel Administrativo:** Uma área restrita (`adm/index.html`) para o controle e gerenciamento da plataforma.
 
-Os dados e o gerenciamento de estado são controlados via JavaScript (`script.js`) e a estilização foi feita com CSS puro (`style.css`), garantindo alta performance[cite: 4]. O backend e o banco de dados são gerenciados através do **Supabase**.
+Os dados e o gerenciamento de estado são controlados via JavaScript (`script.js`) e a estilização foi feita com CSS puro (`style.css`), garantindo alta performance. O backend e o banco de dados são gerenciados através do **Supabase**.
 
 ## 🚀 Funcionalidades
 * Catálogo dinâmico de produtos.
